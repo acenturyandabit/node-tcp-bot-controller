@@ -86,6 +86,9 @@ const wss = new WebSocket.Server({ port: 8047 });
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
       console.log(message);
-    if (baseC)baseC.send(message);
+    if (baseC){
+        console.log("has c");
+        baseC.send(message);
+    }
   });
 });

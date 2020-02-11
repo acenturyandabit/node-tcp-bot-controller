@@ -8,7 +8,7 @@ net.createServer().listen(8330);
 
 
 const http = require('http')
-const port = 80
+const port = 8080
 
 const requestHandler = (request, response) => {
   console.log(request.url)
@@ -24,14 +24,14 @@ const requestHandler = (request, response) => {
     let posx = w / 2;
     let posy = h / 2;
     let ctx = c.getContext('2d');
-    let ws = new WebSocket("ws://localhost:81");
+    let ws = new WebSocket("ws://localhost:8081");
 
     function ping(url) {
         if (ws.readyState == 1) {
             ws.send(url);
         } else {
             if (ws.readyState > 1) {
-                ws = new WebSocket("ws://localhost:81");
+                ws = new WebSocket("ws://localhost:8081");
             }
         }
     };
@@ -79,7 +79,7 @@ htps.listen(port, (err) => {
 
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 81 });
+const wss = new WebSocket.Server({ port: 8081 });
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {

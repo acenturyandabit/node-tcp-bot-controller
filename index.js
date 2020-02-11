@@ -24,14 +24,14 @@ const requestHandler = (request, response) => {
       let posx = w / 2;
       let posy = h / 2;
       let ctx = c.getContext('2d');
-      let ws = new WebSocket("ws://localhost:8081");
+      let ws = new WebSocket("ws://localhost:8047");
   
       function ping(url) {
           if (ws.readyState == 1) {
               ws.send(url);
           } else {
               if (ws.readyState > 1) {
-                  ws = new WebSocket("ws://localhost:8081");
+                  ws = new WebSocket("ws://localhost:8047");
               }
           }
       };
@@ -81,10 +81,11 @@ htps.listen(port, (err) => {
 
 const WebSocket = require('ws');
 
-const wss = new WebSocket.Server({ port: 8081 });
+const wss = new WebSocket.Server({ port: 8047 });
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
+      console.log(message);
     if (baseC)baseC.send(message);
   });
 });

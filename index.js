@@ -8,10 +8,11 @@ net.createServer().listen(8330);
 
 
 const http = require('http')
-const port = 8080
+const port = 8022
 
 const requestHandler = (request, response) => {
   console.log(request.url)
+  response.writeHead(200,{"context-type":"text/html"});
   response.end(`<canvas></canvas>
 <script>
     document.body.style.margin = 0;

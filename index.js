@@ -89,7 +89,7 @@ wss.on('connection', function connection(ws) {
       console.log(message);
     if (baseC){
         console.log("has c");
-        baseC.send(message);
+        baseC.write(message);
     }
   });
 });

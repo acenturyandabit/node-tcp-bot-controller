@@ -3,6 +3,9 @@ let server=net.createServer();
 let baseC;
 server.on("connection",(c)=>{
     baseC=c;
+    baseC.on("error",(e)=>{
+        baseC=undefined;
+    })
     console.log("made C");
 })
 server.listen(8330);

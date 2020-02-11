@@ -5,7 +5,7 @@ server.on("connection",(c)=>{
     baseC=c;
     console.log("made C");
 })
-net.createServer().listen(8330);
+server.listen(8330);
 
 
 const http = require('http')

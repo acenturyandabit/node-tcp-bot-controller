@@ -75,14 +75,14 @@ const requestHandler = (request, response) => {
       };
   
       function sendCommands(x, y) {
-          if (x < w / 3) {
-              ping("0f1o2f3o");
-          } else if (x > 2 * w / 3) {
-              ping("0o1f2o3f");
-          } else if (y < h / 3) {
+        if (y < h / 3) {
             ping("0o1f2f3o");
           } else if (y > 2 * h / 3) {
             ping("0f1o2o3f");
+          }else if (x < w / 3) {
+              ping("0f1o2f3o");
+          } else if (x > 2 * w / 3) {
+              ping("0o1f2o3f");
           } else {
               ping("2f3f0f1f");
           }

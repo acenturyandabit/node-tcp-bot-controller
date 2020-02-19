@@ -21,7 +21,7 @@ const requestHandler = (request, response) => {
   <div class="wrapper">
   <canvas></canvas>
   </div>
-</body>
+
 
   <style>
   .body,
@@ -106,7 +106,9 @@ const requestHandler = (request, response) => {
           posx = w / 2;
           posy = h / 2;
       });
-  </script>`;
+  </script>
+  </body>
+  `;
   response.writeHead(200,{"content-length":stuff.length,"content-type":"text/html; charset=utf-8"});
   response.end(stuff);
 }
